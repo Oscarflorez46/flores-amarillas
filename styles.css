@@ -1,0 +1,334 @@
+/* ==================================
+   ESTILOS GENERALES
+================================== */
+:root {
+  --bg-color: #fff9ed;
+  --card-bg: #ffffff;
+  --primary-gold: #d4a359;
+  --accent-gold: #e6a100;
+  --text-color: #4a3e3d;
+  --soft-shadow: 0 10px 30px rgba(212, 163, 89, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* TULIPANES SVG FLOTANTES EN EL FONDO */
+.floating-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-tulip {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  opacity: 0.35;
+  animation: floatAnim 10s ease-in-out infinite alternate;
+}
+
+.t1 { top: 15%; left: 8%; animation-duration: 8s; }
+.t2 { top: 45%; right: 10%; animation-duration: 12s; }
+.t3 { top: 75%; left: 12%; animation-duration: 9s; }
+
+@keyframes floatAnim {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-25px) rotate(15deg); }
+}
+
+/* ENCABEZADO Y CONTENIDO */
+header.top {
+  text-align: center;
+  padding: 15px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--primary-gold);
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(212, 163, 89, 0.2);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-label {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--primary-gold);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* PORTADA */
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.eyebrow {
+  color: var(--primary-gold);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero h1 em {
+  color: var(--accent-gold);
+  font-style: italic;
+}
+
+.hero-text {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  color: #665c5b;
+}
+
+.scroll-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: var(--primary-gold);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(212, 163, 89, 0.3);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.scroll-button:hover {
+  transform: translateY(-2px);
+  background-color: var(--accent-gold);
+}
+
+.hero-bottom {
+  margin-top: 40px;
+  font-size: 13px;
+  color: var(--primary-gold);
+  font-style: italic;
+}
+
+/* FOTOS Y TARJETAS */
+/* ==================================
+   TARJETAS Y FOTOS (CORREGIDO)
+================================== */
+
+.photo-card, .memory-card, .letter-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 35px 25px;
+  box-shadow: var(--soft-shadow);
+  border: 1px solid #f3e6cf;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* MARCOS DE AMBAS FOTOS */
+.photo-frame, .couple-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 450px; /* Ancho máximo controlado */
+  margin: 0 auto;   /* Centra la tarjeta */
+  background: #fff;
+  padding: 12px;
+  border: 1px solid #eedcb8;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* FOTO DE JENNIFER Y FOTO DEL VOLCÁN */
+.photo-frame img, 
+.couple-photo-frame img, 
+.girlfriend-photo, 
+.couple-photo {
+  width: 100%;
+  height: auto;
+  max-height: 380px;  /* CORRECCIÓN: Limita la altura para que no sea gigante */
+  object-fit: cover;  /* CORRECCIÓN: Evita que la foto se deforme o estire */
+  object-position: center;
+  border-radius: 8px;
+  display: block;
+}
+
+.photo-heart {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-caption h2, .memory-content h2, .letter-card h2, .surprise-title, .footer h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin: 15px 0;
+}
+
+.caption-small, .memory-date, .surprise-small {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+}
+
+.couple-photo-label {
+  text-align: center;
+  padding-top: 12px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #a17c48;
+}
+
+.memory-content {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.memory-content p, .letter-text, .surprise-message p {
+  margin-bottom: 15px;
+  color: #554a49;
+}
+
+.memory-highlight, .final-love {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin: 20px 0 !important;
+}
+
+.memory-signature {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--primary-gold);
+}
+
+.letter-intro {
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.letter-goodbye {
+  margin-top: 25px;
+  font-weight: 700;
+}
+
+.letter-goodbye span {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--accent-gold);
+  font-weight: normal;
+}
+/* SORPRESA */
+.surprise-section {
+  text-align: center;
+}
+
+.surprise-subtitle {
+  color: #665c5b;
+  margin-bottom: 25px;
+}
+
+.surprise-button {
+  background: var(--accent-gold);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(230, 161, 0, 0.3);
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.surprise-button:hover {
+  transform: scale(1.04);
+}
+
+/* OCULTAR MENSAJE SORPRESA */
+.hidden {
+  display: none !important;
+}
+
+.surprise-message {
+  margin-top: 30px;
+  background: #ffffff;
+  padding: 35px 25px;
+  border-radius: 16px;
+  border: 1px solid #eedcb8;
+  box-shadow: var(--soft-shadow);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 50px 20px 30px;
+  border-top: 1px solid rgba(212, 163, 89, 0.2);
+}
+
+.footer p {
+  max-width: 400px;
+  margin: 0 auto 20px;
+  font-size: 14px;
+  color: #665c5b;
+}
+
+.footer-signature {
+  font-size: 12px;
+  color: var(--primary-gold);
+}
+
+.footer-name {
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin-top: 5px;
+}
